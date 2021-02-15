@@ -5,6 +5,7 @@
       <BaseInput />
       <BaseInput />
       <PasswordField />
+      <button>BUTTON</button>
     </div>
   </div>
 </template>
@@ -27,6 +28,7 @@ export default {
   display: flex;
   justify-content: center;
   align-content: center;
+  font-family: "Poppins", sans-serif;
 }
 body {
   margin: 0px;
@@ -39,6 +41,13 @@ body {
   flex-direction: column;
   padding: 1rem;
   border-radius: 2rem;
-  height: 50%;
+  height: 60%;
+}
+button {
+  width: 30%;
+  margin: auto;
+  height: 2rem;
+  border-radius: 1rem;
+  border: none;
 }
 </style>
