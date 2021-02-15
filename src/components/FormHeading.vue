@@ -1,5 +1,11 @@
 <template>
-  <div></div>
+  <div>
+    <h1>Form Heading Join Us</h1>
+    <p>
+      There are many variations of passages of Lorem Ipsum available, but the
+      majority have suffered alteration in some form, by injected humour.
+    </p>
+  </div>
 </template>
 
 <script>
