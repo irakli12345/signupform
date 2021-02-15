@@ -1,11 +1,13 @@
 <template>
-  <div id="app"></div>
+  <div id="app"><BaseInput /> <BaseInput /> <PasswordField /></div>
 </template>
 
 <script>
+import BaseInput from "./components/BaseInput";
+import PasswordField from "./components/PasswordField";
 export default {
   name: "App",
-  components: {},
+  components: { BaseInput, PasswordField },
 };
 </script>
 
