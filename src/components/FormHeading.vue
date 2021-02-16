@@ -30,7 +30,8 @@ img {
 }
 h1 {
   display: inline;
-  font-size: 18px;
+  font-size: 22px;
+  font-family: "Truculenta";
 }
 .imgAndHeading {
   display: flex;
@@ -39,12 +40,12 @@ h1 {
 }
 @media screen and (min-width: 1200px) {
   h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
 }
 @media screen and (min-width: 800px) {
   h1 {
-    font-size: 22px;
+    font-size: 26px;
   }
 }
 @media screen and (min-width: 500px) {

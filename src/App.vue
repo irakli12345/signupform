@@ -45,19 +45,16 @@ body {
   flex-direction: column;
   padding: 1rem;
   border-radius: 2rem;
-  height: 80%;
+  height: 70%;
 }
 @media screen and (min-width: 500px) {
   #formWrapper {
     width: 60%;
-
-    height: 70%;
   }
 }
 @media screen and (min-width: 800px) {
   #formWrapper {
     width: 40%;
-    height: 70%;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -69,5 +66,7 @@ body {
 }
 label {
   font-size: 14px;
+  font-family: "Libre Baskerville";
+  font-weight: bold;
 }
 </style>
