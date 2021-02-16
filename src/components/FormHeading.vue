@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 div {
-  width: 100%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -30,10 +30,26 @@ img {
 }
 h1 {
   display: inline;
+  font-size: 18px;
 }
 .imgAndHeading {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (min-width: 1200px) {
+  h1 {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 500px) {
+  p {
+    margin: 0;
+  }
 }
 </style>
