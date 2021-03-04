@@ -1,14 +1,14 @@
 <template>
   <div class="passwordWrapper">
     <label for="password">Password : </label>
-    <input type="text" id="password" />
+    <input type="password" id="password" @keyup="checkPassword" />
     <span></span>
     <div id="conditions">
-      <li>One lowercase character</li>
-      <li>One uppercase character</li>
-      <li>One number</li>
-      <li>One special character</li>
-      <li>8 characters minimum</li>
+      <li id="lowercase">One lowercase character</li>
+      <li id="uppercase">One uppercase character</li>
+      <li id="number">One number</li>
+      <li id="special">One special character</li>
+      <li id="length">8 characters minimum</li>
     </div>
   </div>
 </template>
@@ -16,8 +16,39 @@
 <script>
 export default {
   name: "PasswordField",
+  data: function() {
+    return {
+      conditions: {
+        lowercase: false,
+        uppercase: false,
+        number: false,
+        special: false,
+        length: false,
+      },
+    };
+  },
   props: {},
-  methods: {},
+  methods: {
+    checkPassword: function(e) {
+      let upperCaseRegExp = /.*[A-Z].*/;
+      let lowerCaseRegExp = /.*[a-z].*/;
+      let specialSymbolsRegExp = /[-!$%^&*()_+|~=`{}\]:;<>?,.@#]/;
+      // let digitRegExp = /.*[0-9].*/;
+      if (upperCaseRegExp.test(e.target.value)) {
+        this.conditions.uppercase = true;
+      } else if (lowerCaseRegExp.test(e.target.value)) {
+        this.conditions.lowercase = true;
+      } else if (/\d/.test(e.target.value)) {
+        this.conditions.number = true;
+      } else if (specialSymbolsRegExp.test(e.target.value)) {
+        this.conditions.special = true;
+      } else if (e.target.value.length >= 8) {
+        this.conditions.length = true;
+      } else {
+        return null;
+      }
+    },
+  },
 };
 </script>
 
