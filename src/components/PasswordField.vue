@@ -4,11 +4,21 @@
     <input type="password" id="password" @keyup="checkPassword" />
     <span></span>
     <div id="conditions">
-      <li id="lowercase">One lowercase character</li>
-      <li id="uppercase">One uppercase character</li>
-      <li id="number">One number</li>
-      <li id="special">One special character</li>
-      <li id="length">8 characters minimum</li>
+      <li id="lowercase" v-bind:class="{ green: conditions.lowercase }">
+        One lowercase character
+      </li>
+      <li id="uppercase" v-bind:class="{ green: conditions.uppercase }">
+        One uppercase character
+      </li>
+      <li id="number" v-bind:class="{ green: conditions.number }">
+        One number
+      </li>
+      <li id="special" v-bind:class="{ green: conditions.special }">
+        One special character
+      </li>
+      <li id="length" v-bind:class="{ green: conditions.length }">
+        8 characters minimum
+      </li>
     </div>
   </div>
 </template>
@@ -33,16 +43,27 @@ export default {
       let upperCaseRegExp = /.*[A-Z].*/;
       let lowerCaseRegExp = /.*[a-z].*/;
       let specialSymbolsRegExp = /[-!$%^&*()_+|~=`{}\]:;<>?,.@#]/;
-      // let digitRegExp = /.*[0-9].*/;
-      if (upperCaseRegExp.test(e.target.value)) {
-        this.conditions.uppercase = true;
-      } else if (lowerCaseRegExp.test(e.target.value)) {
-        this.conditions.lowercase = true;
-      } else if (/\d/.test(e.target.value)) {
+      if (/\d/.test(e.target.value) && this.conditions.number == false) {
         this.conditions.number = true;
-      } else if (specialSymbolsRegExp.test(e.target.value)) {
+      } else if (
+        specialSymbolsRegExp.test(e.target.value) &&
+        this.conditions.special == false
+      ) {
         this.conditions.special = true;
-      } else if (e.target.value.length >= 8) {
+      } else if (
+        upperCaseRegExp.test(e.target.value) &&
+        this.conditions.uppercase == false
+      ) {
+        this.conditions.uppercase = true;
+      } else if (
+        lowerCaseRegExp.test(e.target.value) &&
+        this.conditions.lowercase == false
+      ) {
+        this.conditions.lowercase = true;
+      } else if (
+        e.target.value.length >= 8 &&
+        this.conditions.length == false
+      ) {
         this.conditions.length = true;
       } else {
         return null;
@@ -96,6 +117,10 @@ span {
   width: 100%;
   margin-top: 1rem;
   height: 0.5rem;
+}
+.green {
+  color: rgb(16, 179, 16);
+  font-weight: bold;
 }
 @media screen and (min-width: 800px) {
   #formWrapper {
